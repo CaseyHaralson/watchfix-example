@@ -54,8 +54,8 @@ process.on('unhandledRejection', (reason, promise) => {
   console.error('UnhandledPromiseRejection:', reason);
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend server running on http://0.0.0.0:${PORT}`);
 });
 
 export default app;

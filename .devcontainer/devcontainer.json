@@ -57,6 +57,15 @@
     "ORRERY_AGENT_PRIORITY": "codex,gemini,claude",
     "ORRERY_REVIEW_ENABLED": "true"
   },
+  "forwardPorts": [3000, 3001],
+  "portsAttributes": {
+    "3000": {
+      "onAutoForward": "notify"
+    },
+    "3001": {
+      "onAutoForward": "notify"
+    }
+  },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace"
 }
