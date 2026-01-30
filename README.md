@@ -1,6 +1,6 @@
 # Watchfix Example Project
 
-A demo project with intentional bugs to showcase [watchfix](https://github.com/your-org/watchfix) - an AI-powered error detection and fixing tool.
+A demo project with intentional bugs to showcase [watchfix](https://github.com/CaseyHaralson/watchfix) - an AI-powered error detection and fixing tool.
 
 This project contains a React frontend and Express backend, each with several bugs that produce detectable errors in the logs. Use this to see how watchfix monitors logs, detects errors, and automatically fixes them.
 
@@ -9,7 +9,7 @@ This project contains a React frontend and Express backend, each with several bu
 - **Node.js 18+**
 - **One of the following AI coding agents:**
   - [Claude Code CLI](https://github.com/anthropics/claude-code) (`claude` command)
-  - [Gemini CLI](https://github.com/google/gemini-cli) (`gemini` command)
+  - [Gemini CLI](https://github.com/google-gemini/gemini-cli) (`gemini` command)
   - [OpenAI Codex CLI](https://github.com/openai/codex) (`codex` command)
 - **watchfix** installed globally or via npx
 
