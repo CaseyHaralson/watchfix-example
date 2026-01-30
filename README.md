@@ -31,7 +31,7 @@ The backend runs on port 3001.
 
 **Linux/macOS:**
 ```bash
-cd backend && npm run dev 2>&1 | tee ../backend.log
+cd backend && FORCE_COLOR=1 npm run dev 2>&1 | tee ../backend.log
 ```
 
 **Windows (PowerShell):**
@@ -40,21 +40,13 @@ cd backend
 npm run dev 2>&1 | Tee-Object -FilePath ../backend.log
 ```
 
-**Windows (Command Prompt):**
-> Note: Command Prompt doesn't have a built-in `tee` command. Use PowerShell, or install a Windows port of tee, or use this workaround:
-```cmd
-cd backend
-npm run dev > ../backend.log 2>&1
-```
-> ⚠️ This redirects output to the file only (not visible in terminal). For best experience on Windows, use PowerShell.
-
 ### 3. Start the frontend (Terminal 2)
 
 The frontend runs on port 3000 and proxies API requests to the backend.
 
 **Linux/macOS:**
 ```bash
-cd frontend && npm run dev 2>&1 | tee ../frontend.log
+cd frontend && FORCE_COLOR=1 npm run dev 2>&1 | tee ../frontend.log
 ```
 
 **Windows (PowerShell):**
@@ -105,9 +97,14 @@ trigger-bugs.bat
 
 In Terminal 3, you'll see watchfix:
 1. Detect errors as they appear in the logs
+
+and if autonomous mode is turned on...
+
 2. Analyze the error and identify the root cause
 3. Generate and apply a fix
 4. Run tests to verify the fix worked
+
+Read [further below](#try-manual-mode-first) on how to fix errors in "manual mode". 
 
 ### 7. See what changed
 
