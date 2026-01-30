@@ -1,0 +1,36 @@
+# watchfix configuration for example project
+# Monitors both backend and frontend logs
+
+project:
+  root: .
+  name: watchfix-example
+
+sources:
+  - type: file
+    path: ./backend.log
+  - type: file
+    path: ./frontend.log
+
+agent:
+  provider: claude
+  # Uncomment one of these if using a different agent:
+  # provider: gemini
+  # provider: codex
+
+verification:
+  test_commands:
+    - cd backend && npm test
+    - cd frontend && npm test
+  wait_after_fix: 3s
+
+# patterns:
+#   match:
+#     - "custom error pattern"
+#   ignore:
+#     - "known harmless warning"
+
+fix:
+  max_attempts_per_error: 3
+  
+# cleanup:
+#   retention_days: 7
