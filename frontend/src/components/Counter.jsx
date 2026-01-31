@@ -6,7 +6,6 @@ function Counter() {
   return (
     <div className="counter">
       <h3>Counter</h3>
-      {/* BUG: Typo - 'coutn' instead of 'count' */}
       <p>Current count: {coutn}</p>
       <div className="counter-buttons">
         <button onClick={() => setCount(count - 1)}>-</button>

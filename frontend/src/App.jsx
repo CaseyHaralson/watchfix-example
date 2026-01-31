@@ -105,7 +105,6 @@ function App() {
           <div className="component-display">
             {showUserList && (
               <ErrorBoundary>
-                {/* BUG: Passing undefined instead of an array */}
                 <UserList users={undefined} />
               </ErrorBoundary>
             )}

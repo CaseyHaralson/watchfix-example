@@ -9,8 +9,6 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/posts/:id - Get post by ID
-// BUG: req.params.id is a string, but post.id is a number
-// The === comparison will always fail
 router.get('/:id', (req, res) => {
   const postId = req.params.id;
   const post = posts.find(p => p.id === postId);

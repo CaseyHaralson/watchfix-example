@@ -72,14 +72,14 @@ watchfix watch --autonomous
 Open http://localhost:3000 in your browser. You'll see buttons that trigger various bugs:
 
 **Backend bugs** (API calls):
-- 👤 Get Non-existent User → `TypeError: Cannot read properties of undefined`
-- 📝 Get Post by ID → `TypeError` from string/number comparison
-- ✉️ Send Welcome Email → `UnhandledPromiseRejection`
+- 👤 Get Non-existent User
+- 📝 Get Post by ID
+- ✉️ Send Welcome Email
 
 **Frontend bugs** (component rendering):
-- 📋 Show User List → `TypeError: Cannot read properties of undefined (reading 'map')`
-- 🔢 Show Counter → `ReferenceError: coutn is not defined`
-- 📊 Show Dashboard → `ReferenceError: useEffect is not defined`
+- 📋 Show User List
+- 🔢 Show Counter
+- 📊 Show Dashboard
 
 Alternatively, trigger backend bugs from the command line:
 
@@ -120,9 +120,9 @@ watchfix-example/
 │   ├── src/
 │   │   ├── server.js          # Express server + error logging endpoint
 │   │   ├── routes/
-│   │   │   ├── users.js       # BUG: no null check on find()
-│   │   │   ├── posts.js       # BUG: string vs number comparison
-│   │   │   └── email.js       # BUG: unhandled promise rejection
+│   │   │   ├── users.js
+│   │   │   ├── posts.js
+│   │   │   └── email.js
 │   │   └── data/
 │   │       └── store.js       # In-memory data (no DB required)
 │   ├── tests/                 # Tests that fail until bugs are fixed
@@ -133,9 +133,9 @@ watchfix-example/
 │   │   ├── main.jsx           # Entry point with ErrorBoundary
 │   │   ├── components/
 │   │   │   ├── ErrorBoundary.jsx  # Catches errors, reports to backend
-│   │   │   ├── UserList.jsx   # BUG: undefined.map()
-│   │   │   ├── Counter.jsx    # BUG: variable typo (coutn)
-│   │   │   └── Dashboard.jsx  # BUG: missing useEffect import
+│   │   │   ├── UserList.jsx
+│   │   │   ├── Counter.jsx
+│   │   │   └── Dashboard.jsx
 │   │   └── index.css
 │   ├── tests/                 # Tests that fail until bugs are fixed
 │   └── package.json
@@ -146,24 +146,6 @@ watchfix-example/
 ├── trigger-bugs.bat           # Script to trigger backend bugs (Windows)
 └── README.md
 ```
-
-## The Bugs
-
-### Backend Bugs
-
-| File | Bug | Error Pattern | Expected Fix |
-|------|-----|---------------|--------------|
-| `routes/users.js` | No null check after `.find()` | `TypeError: Cannot read properties of undefined` | Add null check, return 404 |
-| `routes/posts.js` | Comparing string `req.params.id` with number `post.id` | `TypeError: Cannot read properties of undefined` | Use `parseInt()` on the param |
-| `routes/email.js` | Calling async function without `.catch()` | `UnhandledPromiseRejection` | Add `.catch()` error handler |
-
-### Frontend Bugs
-
-| File | Bug | Error Pattern | Expected Fix |
-|------|-----|---------------|--------------|
-| `components/UserList.jsx` | Calling `.map()` on potentially undefined prop | `TypeError: Cannot read properties of undefined (reading 'map')` | Add default value or optional chaining |
-| `components/Counter.jsx` | Typo: `coutn` instead of `count` | `ReferenceError: coutn is not defined` | Fix the typo |
-| `components/Dashboard.jsx` | Using `useEffect` without importing it | `ReferenceError: useEffect is not defined` | Add `useEffect` to import |
 
 ## How Frontend Errors Reach the Logs
 

@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/users/:id - Get user by ID
-// BUG: Does not handle case when user is not found
 router.get('/:id', (req, res) => {
   const user = users.find(u => u.id === parseInt(req.params.id, 10));
   res.json({ name: user.name, email: user.email });

@@ -1,11 +1,9 @@
-// BUG: Missing useEffect import
 import { useState } from 'react';
 
 function Dashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // BUG: useEffect is used but not imported
   useEffect(() => {
     // Simulate fetching dashboard stats
     setTimeout(() => {

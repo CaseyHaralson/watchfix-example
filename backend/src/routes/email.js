@@ -13,7 +13,6 @@ async function sendEmail(to, subject, body) {
 }
 
 // POST /api/send-welcome/:userId - Send welcome email
-// BUG: Unhandled promise rejection - sendEmail is called without await or .catch()
 router.post('/send-welcome/:userId', (req, res) => {
   const userId = parseInt(req.params.userId, 10);
   const user = users.find(u => u.id === userId);
@@ -22,7 +21,6 @@ router.post('/send-welcome/:userId', (req, res) => {
     return res.status(404).json({ error: 'User not found' });
   }
   
-  // Fire and forget - but the promise rejection is unhandled!
   sendEmail(user.email, 'Welcome!', `Hello ${user.name}, welcome to our platform!`);
   
   res.json({ message: 'Welcome email queued' });

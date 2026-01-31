@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// BUG: This component assumes `users` prop is always an array
-// but it might be undefined during initial render or when data loading fails
 function UserList({ users }) {
   return (
     <div className="user-list">
