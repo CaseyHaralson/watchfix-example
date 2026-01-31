@@ -132,6 +132,15 @@ RUN export NVM_DIR="$HOME/.nvm" \
       "@caseyharalson/orrery@${ORRERY_VERSION}" \
       "watchfix@${WATCHFIX_VERSION}"
 
+# # ---- Install tgz packages ----
+# COPY --chown=vscode:vscode ./*.tgz /tmp/devcontainer/
+
+# RUN export NVM_DIR="$HOME/.nvm" \
+#   && source "$NVM_DIR/nvm.sh" \
+#   && nvm use default \
+#   && npm install -g /tmp/devcontainer/*.tgz \
+#   && rm -rf /tmp/devcontainer
+
 # ---- Back to root for firewall script setup ----
 USER root
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

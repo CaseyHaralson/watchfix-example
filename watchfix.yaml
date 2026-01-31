@@ -62,6 +62,7 @@ patterns:
   match:
     - "FATAL:"
     - "panic:"
+    - "[FRONTEND ERROR]"
   ignore:
     - "DeprecationWarning"
     - "ExperimentalWarning"
